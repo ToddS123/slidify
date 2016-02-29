@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Boxplot Selection Feature Tool</title>
+  <meta charset="utf-8">
+  <meta name="description" content="Boxplot Selection Feature Tool">
+  <meta name="author" content="Todd S">
+  <meta name="generator" content="slidify" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/default.css" media="all" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/phone.css" 
+    media="only screen and (max-device-width: 480px)" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/slidify.css" >
+  <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/tomorrow.css" />
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  <link rel=stylesheet href="./assets/css/ribbons.css"></link>
+
+  
+  <!-- Grab CDN jQuery, fall back to local if offline -->
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="libraries/widgets/quiz/js/jquery.js"><\/script>')</script> 
+  <script data-main="libraries/frameworks/io2012/js/slides" 
+    src="libraries/frameworks/io2012/js/require-1.0.8.min.js">
+  </script>
+  
+  
+
+</head>
+<body style="opacity: 0">
+  <slides class="layout-widescreen">
+    
+    <!-- LOGO SLIDE -->
+        <slide class="title-slide segue nobackground">
+  <hgroup class="auto-fadein">
+    <h1>Boxplot Selection Feature Tool</h1>
+    <h2>R mtcars Dataset analysis</h2>
+    <p>Todd S<br/>Analyst</p>
+  </hgroup>
+  <article></article>  
+</slide>
+    
+
+    <!-- SLIDES -->
+    <slide class="" id="slide-1" style="background:;">
+  <hgroup>
+    <h2>Introduction</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>The Boxplot Selection Feature Tool was constructed to streamline the assessment of variable analysis of the R mtcars dataset.  The tool provides a simple to use interface to select three different variables to assess their impact on miles per gallon.  </p>
+
+<p>The tool displays a visual output of the variables using a boxplot as well as a table output of the raw data being compared.  The tool includes the ability to customize the boxplot output including changing color, shape, direction and font size.</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Advantages and Limitations</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Advantages of the tool</p>
+
+<ol>
+<li><p>Variables of the mtcars dataset can be compared to MPG without writing any R Code</p></li>
+<li><p>The Boxplot visual output can be easily customized without writing any R Code</p></li>
+<li><p>The selected variable output is displayed in a boxplot and table output comparing to MPG</p></li>
+</ol>
+
+<p>Limitations of the tool</p>
+
+<ol>
+<li><p>Only three of the variables from the MTCars dataset are avaiable for analysis</p></li>
+<li><p>Only the MPG (miles per gallon) variable is used to compare variables</p></li>
+</ol>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Data Summary</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>The variables avaiable to assess within the tool are:  cyl,am,gear.</p>
+
+<pre><code class="r">head(mtcars,n=1)
+</code></pre>
+
+<pre><code>##           mpg cyl disp  hp drat   wt  qsec vs am gear carb
+## Mazda RX4  21   6  160 110  3.9 2.62 16.46  0  1    4    4
+</code></pre>
+
+<p>The tool compares the mpg mean for each level of the selected varaible.  The cyl variable is outlined below as an example:</p>
+
+<pre><code class="r">aggregate(mpg~cyl, mtcars,mean)
+</code></pre>
+
+<pre><code>##   cyl      mpg
+## 1   4 26.66364
+## 2   6 19.74286
+## 3   8 15.10000
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Boxplot output view sample</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">boxplot(mpg~cyl, 
+        data = mtcars,
+        outline = TRUE,          #outliers
+        col = &quot;green&quot;,               #color
+        notch=FALSE,              #notch style
+        horizontal=FALSE,         #Directions
+        cex.lab=2)               #Font Size of the axis label
+</code></pre>
+
+<p><img src="assets/fig/unnamed-chunk-3-1.png" alt="plot of chunk unnamed-chunk-3"></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+    <slide class="backdrop"></slide>
+  </slides>
+  <div class="pagination pagination-small" id='io2012-ptoc' style="display:none;">
+    <ul>
+      <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=1 title='Introduction'>
+         1
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=2 title='Advantages and Limitations'>
+         2
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=3 title='Data Summary'>
+         3
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=4 title='Boxplot output view sample'>
+         4
+      </a>
+    </li>
+  </ul>
+  </div>  <!--[if IE]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
+    </script>
+    <script>CFInstall.check({mode: 'overlay'});</script>
+  <![endif]-->
+</body>
+  <!-- Load Javascripts for Widgets -->
+  
+  <!-- LOAD HIGHLIGHTER JS FILES -->
+  <script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!-- DONE LOADING HIGHLIGHTER JS FILES -->
+   
+  </html>
